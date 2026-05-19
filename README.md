@@ -9,7 +9,7 @@ First clone to your directory:
 ```git
 git clone https://github.com/yuelin-wang/Shell-Clone.git
 ```
-Then run the make file, while compiles the C code:
+Then run the make file, which compiles the C code:
 ``` make
 make 
 ```
@@ -19,12 +19,12 @@ Lastly run the compiled executable file:
 ```
 
 ## Shell
-The basic interface lookes like this:
+The basic interface looks like this:
 ``` shell
 <user>:<current working directory>$ 
 ```
 Similar to any shell, please type your command after `$`.  
-To exit, type command `exit (<optional exit status, default 0>)` or EOF by ctrl + D.
+To exit, please type command `exit (<optional exit status, default 0>)` or EOF by ctrl + D.
 
 ## End Note
 Have a nice day!
