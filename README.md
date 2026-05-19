@@ -15,7 +15,7 @@ make
 ```
 Lastly run the compiled executable file:
 ``` shell
-./mush
+./StevenShell
 ```
 
 ## Shell
