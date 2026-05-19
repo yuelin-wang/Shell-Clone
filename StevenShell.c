@@ -1,12 +1,13 @@
-#include <stdio.h>
+#include <stdio.h>      // I/O
+#include <stdlib.h>     // memory allocation, getenv(), standard streams
+#include <unistd.h>     // fork, exec, getcwd(), chdir()
+#include <string.h>     // string copy, comparison, and tokenization
+#include <errno.h>      // error number
+#include <sys/wait.h>   // wait
+
 #if __STDC_VERSION__ < 202311L
-#include <stdbool.h>
+#include <stdbool.h>    // bool type
 #endif
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-#include <sys/wait.h>
 
 int main(int argc, char *argv[])
 {
@@ -29,12 +30,14 @@ int main(int argc, char *argv[])
             return 0;
         }
 
-        // tokenize input
+        // omit new line
         char * endl = input;
         while (*endl != '\n') {
             endl ++;
         }
         *endl = '\0';
+
+        // tokenize input
         char * arguments [16] = {};
         size_t index = 0;
         char * argument = strtok(input, " ");
@@ -68,6 +71,7 @@ int main(int argc, char *argv[])
             // fork
             pid_t pid = fork();
             int status;
+
             // child
             if (pid == 0){
                 // execute command
@@ -77,6 +81,7 @@ int main(int argc, char *argv[])
                     fprintf(stderr, "Steven Shell: command '%s' not found\n", arguments[0]);
                 }
             }
+            
             // parent
             else {
                 // wait for child
