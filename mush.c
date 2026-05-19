@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
             // parent
             else {
                 // wait for child
-                waitpid(pid, &status, WCONTINUED);
+                waitpid(pid, &status, WUNTRACED);
             }
         }
     }
