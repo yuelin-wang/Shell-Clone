@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         char * PWD = malloc(256);
         strcpy(user, getenv("USER"));
         getcwd(PWD, 256);
-        fprintf(stdout, "%s:%s$", user, PWD);
+        fprintf(stdout, "%s:%s$ ", user, PWD);
 
         // receive user input
         char * input = malloc(256);
