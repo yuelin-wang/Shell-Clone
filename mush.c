@@ -53,17 +53,16 @@ int main(int argc, char *argv[])
             if (arguments[1]) {
                 return atoi(arguments[1]);
             }
-            continue;
         } else if (!strcmp("cd", arguments[0])) {
             if (!arguments[1]) {
                 chdir(getenv("HOME"));
             } else if (chdir(arguments[1])) {
                 fprintf(stderr, "mush: cd: no such file or directory '%s'\n", arguments[1]);
             }
-            continue;
         }
 
         // handle non-builtins
+        else {
             // fork
             pid_t pid = fork();
             int status;
@@ -81,6 +80,7 @@ int main(int argc, char *argv[])
                 // wait for child
                 waitpid(pid, &status, WCONTINUED);
             }
+        }
     }
     return 0;
 }
