@@ -52,12 +52,14 @@ int main(int argc, char *argv[])
         if (!strcmp("exit", arguments[0])) {
             if (arguments[1]) {
                 return atoi(arguments[1]);
+            } else {
+                return 0;
             }
         } else if (!strcmp("cd", arguments[0])) {
             if (!arguments[1]) {
                 chdir(getenv("HOME"));
             } else if (chdir(arguments[1])) {
-                fprintf(stderr, "mush: cd: no such file or directory '%s'\n", arguments[1]);
+                fprintf(stderr, "Steven Shell: cd: no such file or directory '%s'\n", arguments[1]);
             }
         }
 
@@ -72,7 +74,7 @@ int main(int argc, char *argv[])
                 int ret = execvp(arguments[0], arguments);
                 // handle errors
                 if (ret == -1) {
-                    fprintf(stderr, "mush: command '%s' not found\n", arguments[0]);
+                    fprintf(stderr, "Steven Shell: command '%s' not found\n", arguments[0]);
                 }
             }
             // parent
