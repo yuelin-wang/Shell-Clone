@@ -2,7 +2,7 @@
 A side program I wrote while working for FEAST program in the summer to get myself familiar with lower level C programming and the relationship between shell and OS (especially in the envrionment of the Linux kernel and GNU C Library).
 
 ## Content
-A C program that simulates the command line interface. The C program handles the commands `cd` and `exit` itself, while calling shell to run the rest of commands.
+A C program that simulates the command line interface. The C program handles the commands `cd` and `exit` itself, while loading other executables to run the rest of commands.
 
 ## Build
 First clone to your directory:
